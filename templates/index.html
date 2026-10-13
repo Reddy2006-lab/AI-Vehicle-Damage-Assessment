@@ -1,34 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>AI Vehicle Damage Assessment</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        .message {
+            margin: 25px auto;
+            padding: 18px;
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .upload-box {
+            margin-top: 30px;
+            padding: 30px;
+            border: 2px dashed #667eea;
+            border-radius: 15px;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>AI-Powered Vehicle Damage Assessment</h1>
+<div class="container">
 
-    <p>Upload a vehicle image for damage assessment.</p>
+    <h1>🚗 AI Vehicle Damage Assessment</h1>
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <p>
+        Upload a vehicle image to detect damage
+        and estimate the insurance claim.
+    </p>
 
-        <input
-            type="file"
-            name="vehicle_image"
-            accept="image/*"
-            required
-        >
+    {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+    {% endif %}
 
-        <br><br>
+    <div class="upload-box">
 
-        <button type="submit">
-            Analyze Damage
-        </button>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
 
-    </form>
+            <input
+                type="file"
+                name="vehicle_image"
+                accept="image/*"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                🔍 Analyze Vehicle
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
-
 </html>

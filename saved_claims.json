@@ -1,0 +1,80 @@
+[
+    {
+        "claim_id": "CLM-20260915202512",
+        "image": "car12.jpg",
+        "date": "15-09-2026 20:25:12",
+        "status": "Processed",
+        "saved": true,
+        "detections": [
+            {
+                "vehicle_part": "Bonnet",
+                "damage_type": "Dent",
+                "severity": "Severe",
+                "confidence": 84.09,
+                "repair_cost": 15000,
+                "insurance_claim": 12000
+            }
+        ]
+    },
+    {
+        "claim_id": "CLM-20260915203132",
+        "image": "car5.jpeg",
+        "date": "15-09-2026 20:31:32",
+        "status": "Processed",
+        "saved": true,
+        "plate_number": "Not Detected",
+        "detections": [
+            {
+                "vehicle_part": "Door",
+                "damage_type": "Dent",
+                "severity": "Severe",
+                "confidence": 93.72,
+                "repair_cost": 12000,
+                "insurance_claim": 9600
+            },
+            {
+                "vehicle_part": "Fender",
+                "damage_type": "Dent",
+                "severity": "Moderate",
+                "confidence": 61.78,
+                "repair_cost": 11000,
+                "insurance_claim": 7700
+            }
+        ]
+    },
+    {
+        "claim_id": "CLM-20260915205352",
+        "image": "scooty1.webp",
+        "date": "15-09-2026 20:53:52",
+        "status": "Processed",
+        "saved": true,
+        "plate_number": "Not Detected",
+        "detections": []
+    },
+    {
+        "claim_id": "CLM-20260925110629",
+        "image": "car6.jpg",
+        "date": "25-09-2026 11:06:29",
+        "status": "Processed",
+        "saved": true,
+        "plate_number": "Not Detected",
+        "detections": [
+            {
+                "vehicle_part": "Fender",
+                "damage_type": "Dent",
+                "severity": "Moderate",
+                "confidence": 72.83,
+                "repair_cost": 11000,
+                "insurance_claim": 7700
+            },
+            {
+                "vehicle_part": "Front Bumper",
+                "damage_type": "Dent",
+                "severity": "Moderate",
+                "confidence": 62.49,
+                "repair_cost": 14000,
+                "insurance_claim": 9800
+            }
+        ]
+    }
+]

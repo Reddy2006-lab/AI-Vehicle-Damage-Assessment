@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saved Insurance Claims</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .claim {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .claim h2 {
+            color: #4f46e5;
+            margin-top: 0;
+        }
+
+        .info {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .vehicle-image {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            margin: 15px auto 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .status {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .damage {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 25px auto;
+            background: white;
+            color: #4f46e5;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .no-claims {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>💾 Saved Insurance Claims</h1>
+
+
+    {% if claims %}
+
+        {% for claim in claims %}
+
+        <div class="claim">
+
+            <h2>
+                🆔 Claim ID: {{ claim.claim_id }}
+            </h2>
+
+            <div class="info">
+                📅 <strong>Date:</strong>
+                {{ claim.date }}
+            </div>
+
+            <!-- Uploaded Vehicle Image -->
+            <div class="info">
+                📸 <strong>Uploaded Vehicle Image:</strong>
+            </div>
+
+            <img
+                src="{{ url_for('uploaded_file', filename=claim.image) }}"
+                class="vehicle-image"
+                alt="Uploaded Vehicle Image"
+            >
+
+            <div class="info">
+                🚘 <strong>Vehicle Number Plate:</strong>
+                {{ claim.plate_number }}
+            </div>
+
+            <div class="info">
+                <span class="status">
+                    ✅ {{ claim.status }}
+                </span>
+            </div>
+
+
+            {% for detection in claim.detections %}
+
+            <div class="damage">
+
+                <strong>🚗 Vehicle Part:</strong>
+                {{ detection.vehicle_part }}
+
+                <br><br>
+
+                <strong>🔧 Damage:</strong>
+                {{ detection.damage_type }}
+
+                <br><br>
+
+                <strong>⚠️ Severity:</strong>
+                {{ detection.severity }}
+
+                <br><br>
+
+                <strong>🎯 Confidence:</strong>
+                {{ detection.confidence }}%
+
+                <br><br>
+
+                <strong>🔧 Repair Cost:</strong>
+                ₹{{ detection.repair_cost }}
+
+                <br><br>
+
+                <strong>🛡️ Insurance Claim:</strong>
+                ₹{{ detection.insurance_claim }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="no-claims">
+
+            <h2>📂 No Saved Claims</h2>
+
+            <p>
+                Upload a vehicle image to create an insurance claim.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    <a href="{{ url_for('home') }}" class="back">
+        🔄 Upload Another Image
+    </a>
+
+</div>
+
+</body>
+
+</html>

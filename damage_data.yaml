@@ -1,0 +1,24 @@
+train: C:/Users/prasanna reddy/Downloads/car_damage_v8/train/images
+val: C:/Users/prasanna reddy/Downloads/car_damage_v8/valid/images
+test: C:/Users/prasanna reddy/Downloads/car_damage_v8/test/images
+
+nc: 17
+
+names:
+  0: Front-Windscreen-Damage
+  1: Headlight-Damage
+  2: Major-Rear-Bumper-Dent
+  3: Rear-windscreen-Damage
+  4: RunningBoard-Dent
+  5: Sidemirror-Damage
+  6: Signlight-Damage
+  7: Taillight-Damage
+  8: bonnet-dent
+  9: doorouter-dent
+  10: fender-dent
+  11: front-bumper-dent
+  12: medium-Bodypanel-Dent
+  13: pillar-dent
+  14: quaterpanel-dent
+  15: rear-bumper-dent
+  16: roof-dent
